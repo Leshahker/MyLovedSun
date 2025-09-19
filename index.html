@@ -22,27 +22,30 @@
         }
         .container {
             text-align: center;
-            max-width: 90%;
-            padding: 20px;
-            position: relative;
+            max-width: 80%; /* Уменьшили зону текста */
+            padding: 10px; /* Уменьшили padding */
+            position: absolute;
+            bottom: 10px; /* Переместили вниз, чтобы не мешать сердцам */
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 1;
             background: rgba(255, 255, 255, 0.15);
-            border-radius: 30px;
-            box-shadow: 0 10px 50px rgba(255, 107, 107, 0.4);
+            border-radius: 20px; /* Уменьшили радиус */
+            box-shadow: 0 5px 25px rgba(255, 107, 107, 0.4);
             backdrop-filter: blur(10px);
         }
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            margin-bottom: 15px;
+            font-size: 2.5em; /* Уменьшили шрифт */
+            margin-bottom: 10px;
             animation: fadeIn 2.5s ease-in, gentlePulse 3s infinite;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
         }
         p {
-            font-size: 1.2em;
-            margin-bottom: 15px;
+            font-size: 1em; /* Уменьшили шрифт */
+            margin-bottom: 10px;
             animation: fadeIn 3.5s ease-in;
-            line-height: 1.6;
+            line-height: 1.4;
         }
         .sun {
             width: 150px;
@@ -115,44 +118,23 @@
         }
         .heart {
             position: absolute;
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(#ff69b4, #ff1493);
-            transform: rotate(-45deg);
+            font-size: 44px; /* Размер эмодзи */
+            line-height: 1;
             animation: ellipticalOrbit 18s linear infinite;
             cursor: pointer;
             transition: transform 0.4s ease, opacity 0.4s ease;
             pointer-events: auto;
-            padding: 10px; /* Увеличили зону клика прозрачным padding */
-            box-sizing: content-box; /* Чтобы padding не влиял на визуальный размер */
+            padding: 10px; /* Зона клика */
+            box-sizing: content-box;
         }
         .heart:hover {
-            transform: scale(1.3) rotate(-45deg);
+            transform: scale(1.3);
             box-shadow: 0 0 20px #ff69b4;
         }
         .heart.collected {
             opacity: 0.3;
             pointer-events: none;
             animation-play-state: paused;
-        }
-        .heart:before,
-        .heart:after {
-            content: "";
-            position: absolute;
-            width: 44px;
-            height: 44px;
-            background: inherit;
-            border-radius: 50%;
-            left: -10px; /* Корректировка для padding */
-            top: -10px; /* Корректировка для padding */
-        }
-        .heart:before {
-            top: -22px;
-            left: -10px;
-        }
-        .heart:after {
-            left: 12px;
-            top: -10px;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
@@ -176,8 +158,8 @@
             to { height: 160px; opacity: 1; }
         }
         @keyframes ellipticalOrbit {
-            0% { transform: translate(-50%, -50%) rotate(0deg) translate(150px, 100px) rotate(0deg) rotate(-45deg); } /* Уменьшили орбиту для мобильных */
-            100% { transform: translate(-50%, -50%) rotate(360deg) translate(150px, 100px) rotate(-360deg) rotate(-45deg); }
+            0% { transform: translate(-50%, -50%) rotate(0deg) translate(150px, 100px) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) translate(150px, 100px) rotate(-360deg); }
         }
         @keyframes elegantPopIn {
             to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
@@ -238,21 +220,22 @@
         /* Media Queries for Responsiveness */
         @media (min-width: 768px) {
             .container {
-                max-width: 1000px;
-                padding: 40px;
+                max-width: 800px; /* Уменьшили для десктопа тоже */
+                padding: 20px;
+                bottom: 20px;
             }
             h1 {
-                font-size: 4.5em;
-                margin-bottom: 25px;
+                font-size: 3.5em;
+                margin-bottom: 15px;
             }
             p {
-                font-size: 1.7em;
-                margin-bottom: 25px;
+                font-size: 1.4em;
+                margin-bottom: 15px;
             }
             .sun {
                 width: 200px;
                 height: 200px;
-                top: 35%;
+                top: 25%;
             }
             .rays {
                 width: 350px;
@@ -279,31 +262,15 @@
                 right: 15px;
             }
             .heart {
-                width: 45px;
-                height: 45px;
-                padding: 0; /* На десктопе padding не нужен, зона клика стандартная */
-            }
-            .heart:before,
-            .heart:after {
-                width: 45px;
-                height: 45px;
-                left: 0;
-                top: 0;
-            }
-            .heart:before {
-                top: -22.5px;
-                left: 0;
-            }
-            .heart:after {
-                left: 22.5px;
-                top: 0;
+                font-size: 45px;
+                padding: 0; /* На десктопе без padding */
             }
             @keyframes ellipticalOrbit {
-                0% { transform: translate(-50%, -50%) rotate(0deg) translate(280px, 200px) rotate(0deg) rotate(-45deg); }
-                100% { transform: translate(-50%, -50%) rotate(360deg) translate(280px, 200px) rotate(-360deg) rotate(-45deg); }
+                0% { transform: translate(-50%, -50%) rotate(0deg) translate(280px, 200px) rotate(0deg); }
+                100% { transform: translate(-50%, -50%) rotate(360deg) translate(280px, 200px) rotate(-360deg); }
             }
             .hearts-container {
-                top: 35%;
+                top: 25%;
             }
             .confetti {
                 width: 12px;
@@ -319,10 +286,10 @@
 <body>
     <div class="stars"></div>
     <div class="container">
-        <h1>Поля! Солнышко мое любимое, эту страничку я решил посвятить тебе</h1>
-        <p>Ты самое дорогое что у меня есть, и это правда. Ты делаешь каждый мой день ярким и насыщенным, я люблю тебя моя любимая, очень сильно</p>
-        <p>Потыкай по этим сердчекам может что то и будет...</p>
-        <p>С бесконечной любовью и восхищением, твой котенок</p>
+        <h1>Моему сияющему Солнышку Поле! ☀️❤️</h1>
+        <p>Добро пожаловать в наш волшебный мир любви, где каждое сердце — это частичка моих чувств к тебе. Кликни на солнце, чтобы почувствовать тепло моей души, или собери все летающие сердца, чтобы открыть тайный сюрприз — поэму, написанную только для тебя!</p>
+        <p>Ты — свет моей жизни, Поля, моё вечное Солнышко, что разгоняет тени и наполняет дни радостью. С тобой каждый миг — как сказка, полная нежности и чуда.</p>
+        <p>С бесконечной любовью и восхищением, [Твоё имя]</p>
     </div>
     <div class="sun" id="sun">
         <div class="rays">
@@ -345,13 +312,13 @@
         </div>
     </div>
     <div class="hearts-container">
-        <div class="heart" style="animation-delay: 0s;" data-message="Каждое твое голосовое дарит мне тонну радости и восхищения! Я люблю твой голос, я тебя люблю!"></div>
-        <div class="heart" style="animation-delay: -4s;" data-message="С тобой каждый день расцветает, словно сад под теплым светом — полон красок и ароматов любви. Я тебя люблю!"></div>
-        <div class="heart" style="animation-delay: -8s;" data-message="Ты мое чудо маленькое я тебя так порой заобнимать хочу, ты не представляешь, и зацеловать тебя. Я люблю тебя!"></div>
-        <div class="heart" style="animation-delay: -12s;" data-message="Я помню все, как ты мне встречаться предложила, сохранила тот кружок с половиной лица, хах, это так мило. Я люблю тебя!"></div>
-        <div class="heart" style="animation-delay: -16s;" data-message="Твоя доброта греет мне душу сильнее летнего полдня. Я люблю тебя!"></div>
-        <div class="heart" style="animation-delay: -20s;" data-message="Ты центр моей вселенной, вокруг тебя кружат все мои мысли и желания. Я люблю тебя"></div>
-        <div class="heart" style="animation-delay: -24s;" data-message="Люблю тебя за то, как ты превращаешь обыденность в волшебство одним взглядом. Люблю тебя моя девочка"></div>
+        <div class="heart" style="animation-delay: 0s;" data-message="Твоя улыбка — как первый луч солнца, что будит мир и мое сердце к жизни.">❤️</div>
+        <div class="heart" style="animation-delay: -4s;" data-message="С тобой каждый день расцветает, словно сад под теплым светом — полон красок и ароматов любви.">❤️</div>
+        <div class="heart" style="animation-delay: -8s;" data-message="Ты моя муза, Поля, вдохновляющая на стихи и мечты, где мы вдвоем навсегда.">❤️</div>
+        <div class="heart" style="animation-delay: -12s;" data-message="Помню нашу первую встречу — это был миг, когда мое солнце взошло навсегда.">❤️</div>
+        <div class="heart" style="animation-delay: -16s;" data-message="Твоя доброта греет душу сильнее летнего полдня, обволакивая нежностью.">❤️</div>
+        <div class="heart" style="animation-delay: -20s;" data-message="Ты центр моей вселенной, вокруг тебя кружат все мои мысли и желания.">❤️</div>
+        <div class="heart" style="animation-delay: -24s;" data-message="Люблю тебя за то, как ты превращаешь обыденность в волшебство одним взглядом.">❤️</div>
     </div>
     <div class="message" id="message">
         <span class="close-btn" id="close">✖</span>
@@ -366,7 +333,7 @@
         let collectedHearts = 0;
         const totalHearts = hearts.length;
 
-        
+        // Создать мерцающие звёзды на фоне
         function createStars() {
             const starsContainer = document.querySelector('.stars');
             for (let i = 0; i < 150; i++) {
@@ -381,7 +348,7 @@
         }
         createStars();
 
-        
+        // Конфетти эффект
         function createConfetti() {
             const confetti = document.createElement('div');
             confetti.classList.add('confetti');
@@ -412,9 +379,9 @@
         }
 
         sun.addEventListener('click', (e) => {
-            messageText.innerHTML = 'Моё Солнышко, Поля! Ты — источник света в моей жизни, что озаряет каждый уголок души теплом и счастьем. Без тебя мир блекнет, а с тобой — сияет ярче звёзд. Я люблю тебя за эту магию, что ты приносишь в мои серые дни.';
+            messageText.innerHTML = 'Моё Солнышко, Поля! Ты — источник света в моей жизни, что озаряет каждый уголок души теплом и счастьем. Без тебя мир блекнет, а с тобой — сияет ярче звёзд. Я люблю тебя за эту магию, что ты приносишь в наши дни.';
             message.style.display = 'block';
-            launchFirework(e.clientX, e.clientY); 
+            launchFirework(e.clientX, e.clientY); // Фейерверк при клике
             for (let i = 0; i < 15; i++) createConfetti();
         });
 
@@ -425,7 +392,7 @@
                 message.style.display = 'block';
                 heart.classList.add('collected');
                 collectedHearts++;
-                launchFirework(e.clientX, e.clientY); 
+                launchFirework(e.clientX, e.clientY); // Фейерверк при сборе сердца
                 for (let i = 0; i < 10; i++) createConfetti();
                 if (collectedHearts === totalHearts) {
                     setTimeout(() => {
@@ -440,7 +407,7 @@
                             Тепло души, что не гаснет вовек.<br>
                             Ты моя муза, моя вечная звезда,<br>
                             Люблю тебя сильно, навек и всегда!<br><br>
-                            
+                            Давай напишем нашу историю дальше, полную приключений и нежности. ❤️☀️
                         `;
                         message.style.display = 'block';
                         for (let i = 0; i < 50; i++) createConfetti();
