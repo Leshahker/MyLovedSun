@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моему Солнышку Поле: Волшебный Мир Нашей Любви ☀️❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #ff9d6c, #ff6b6b, #ffd93d);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            max-width: 80%; /* Уменьшили зону текста */
+            padding: 10px; /* Уменьшили padding */
+            position: absolute;
+            bottom: 10px; /* Переместили вниз, чтобы не мешать сердцам */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px; /* Уменьшили радиус */
+            box-shadow: 0 5px 25px rgba(255, 107, 107, 0.4);
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em; /* Уменьшили шрифт */
+            margin-bottom: 10px;
+            animation: fadeIn 2.5s ease-in, gentlePulse 3s infinite;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1em; /* Уменьшили шрифт */
+            margin-bottom: 10px;
+            animation: fadeIn 3.5s ease-in;
+            line-height: 1.4;
+        }
+        .sun {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ffe066, #ff9500, #ff5e00);
+            border-radius: 50%;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 70px #ffe066, 0 0 120px #ff5e00;
+            animation: glow 4s infinite alternate, slowRotate 25s linear infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .sun:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .rays {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 250px;
+            pointer-events: none;
+        }
+        .ray {
+            position: absolute;
+            width: 2px;
+            height: 130px;
+            background: linear-gradient(to bottom, rgba(255, 224, 102, 0.8), transparent);
+            top: -65px;
+            left: 124px;
+            transform-origin: bottom;
+            animation: rayShimmer 2.5s infinite alternate ease-in-out;
+        }
+        .message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.95);
+            background: rgba(255, 255, 255, 0.95);
+            color: #ff6b6b;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            max-width: 90%;
+            z-index: 4;
+            text-align: center;
+            animation: elegantPopIn 0.6s ease-out forwards;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1em;
+            line-height: 1.6;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.8em;
+            color: #ff6b6b;
+            transition: color 0.3s;
+        }
+        .close-btn:hover {
+            color: #ff9500;
+        }
+        .heart {
+            position: absolute;
+            font-size: 44px; /* Размер эмодзи */
+            line-height: 1;
+            animation: ellipticalOrbit 18s linear infinite;
+            cursor: pointer;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            pointer-events: auto;
+            padding: 10px; /* Зона клика */
+            box-sizing: content-box;
+        }
+        .heart:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 20px #ff69b4;
+        }
+        .heart.collected {
+            opacity: 0.3;
+            pointer-events: none;
+            animation-play-state: paused;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes gentlePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 50px #ffe066, 0 0 90px #ff5e00; }
+            to { box-shadow: 0 0 90px #ffe066, 0 0 150px #ff5e00; }
+        }
+        @keyframes slowRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes rayShimmer {
+            from { height: 130px; opacity: 0.7; }
+            to { height: 160px; opacity: 1; }
+        }
+        @keyframes ellipticalOrbit {
+            0% { transform: translate(-50%, -50%) rotate(0deg) translate(150px, 100px) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg) translate(150px, 100px) rotate(-360deg); }
+        }
+        @keyframes elegantPopIn {
+            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+        .hearts-container {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            width: 0;
+            height: 0;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confettiBurst 4s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes confettiBurst {
+            0% { transform: translateY(-120vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(120vh) rotate(900deg); opacity: 0; }
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: sparkle 3s infinite alternate ease-in-out;
+        }
+        @keyframes sparkle {
+            from { opacity: 0.4; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: hsl(var(--hue), 100%, 50%);
+            border-radius: 50%;
+            animation: fireworkExplode 1.5s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes fireworkExplode {
+            0% { transform: translate(0, 0); opacity: 1; }
+            100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 800px; /* Уменьшили для десктопа тоже */
+                padding: 20px;
+                bottom: 20px;
+            }
+            h1 {
+                font-size: 3.5em;
+                margin-bottom: 15px;
+            }
+            p {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+            .sun {
+                width: 200px;
+                height: 200px;
+                top: 25%;
+            }
+            .rays {
+                width: 350px;
+                height: 350px;
+            }
+            .ray {
+                width: 3px;
+                height: 180px;
+                top: -90px;
+                left: 174px;
+            }
+            @keyframes rayShimmer {
+                from { height: 180px; opacity: 0.7; }
+                to { height: 220px; opacity: 1; }
+            }
+            .message {
+                padding: 40px;
+                font-size: 1.4em;
+                max-width: 800px;
+            }
+            .close-btn {
+                font-size: 2.2em;
+                top: 15px;
+                right: 15px;
+            }
+            .heart {
+                font-size: 45px;
+                padding: 0; /* На десктопе без padding */
+            }
+            @keyframes ellipticalOrbit {
+                0% { transform: translate(-50%, -50%) rotate(0deg) translate(280px, 200px) rotate(0deg); }
+                100% { transform: translate(-50%, -50%) rotate(360deg) translate(280px, 200px) rotate(-360deg); }
+            }
+            .hearts-container {
+                top: 25%;
+            }
+            .confetti {
+                width: 12px;
+                height: 12px;
+            }
+            .firework {
+                width: 6px;
+                height: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1>Моему сияющему Солнышку Поле! ☀️❤️</h1>
+        <p>Добро пожаловать в наш волшебный мир любви, где каждое сердце — это частичка моих чувств к тебе. Кликни на солнце, чтобы почувствовать тепло моей души, или собери все летающие сердца, чтобы открыть тайный сюрприз — поэму, написанную только для тебя!</p>
+        <p>Ты — свет моей жизни, Поля, моё вечное Солнышко, что разгоняет тени и наполняет дни радостью. С тобой каждый миг — как сказка, полная нежности и чуда.</p>
+        <p>С бесконечной любовью и восхищением, [Твоё имя]</p>
+    </div>
+    <div class="sun" id="sun">
+        <div class="rays">
+            <div class="ray" style="transform: rotate(0deg); animation-delay: 0s;"></div>
+            <div class="ray" style="transform: rotate(22.5deg); animation-delay: 0.1s;"></div>
+            <div class="ray" style="transform: rotate(45deg); animation-delay: 0.2s;"></div>
+            <div class="ray" style="transform: rotate(67.5deg); animation-delay: 0.3s;"></div>
+            <div class="ray" style="transform: rotate(90deg); animation-delay: 0.4s;"></div>
+            <div class="ray" style="transform: rotate(112.5deg); animation-delay: 0.5s;"></div>
+            <div class="ray" style="transform: rotate(135deg); animation-delay: 0.6s;"></div>
+            <div class="ray" style="transform: rotate(157.5deg); animation-delay: 0.7s;"></div>
+            <div class="ray" style="transform: rotate(180deg); animation-delay: 0.8s;"></div>
+            <div class="ray" style="transform: rotate(202.5deg); animation-delay: 0.9s;"></div>
+            <div class="ray" style="transform: rotate(225deg); animation-delay: 1s;"></div>
+            <div class="ray" style="transform: rotate(247.5deg); animation-delay: 1.1s;"></div>
+            <div class="ray" style="transform: rotate(270deg); animation-delay: 1.2s;"></div>
+            <div class="ray" style="transform: rotate(292.5deg); animation-delay: 1.3s;"></div>
+            <div class="ray" style="transform: rotate(315deg); animation-delay: 1.4s;"></div>
+            <div class="ray" style="transform: rotate(337.5deg); animation-delay: 1.5s;"></div>
+        </div>
+    </div>
+    <div class="hearts-container">
+        <div class="heart" style="animation-delay: 0s;" data-message="Твоя улыбка — как первый луч солнца, что будит мир и мое сердце к жизни.">❤️</div>
+        <div class="heart" style="animation-delay: -4s;" data-message="С тобой каждый день расцветает, словно сад под теплым светом — полон красок и ароматов любви.">❤️</div>
+        <div class="heart" style="animation-delay: -8s;" data-message="Ты моя муза, Поля, вдохновляющая на стихи и мечты, где мы вдвоем навсегда.">❤️</div>
+        <div class="heart" style="animation-delay: -12s;" data-message="Помню нашу первую встречу — это был миг, когда мое солнце взошло навсегда.">❤️</div>
+        <div class="heart" style="animation-delay: -16s;" data-message="Твоя доброта греет душу сильнее летнего полдня, обволакивая нежностью.">❤️</div>
+        <div class="heart" style="animation-delay: -20s;" data-message="Ты центр моей вселенной, вокруг тебя кружат все мои мысли и желания.">❤️</div>
+        <div class="heart" style="animation-delay: -24s;" data-message="Люблю тебя за то, как ты превращаешь обыденность в волшебство одним взглядом.">❤️</div>
+    </div>
+    <div class="message" id="message">
+        <span class="close-btn" id="close">✖</span>
+        <p id="message-text"></p>
+    </div>
+    <script>
+        const sun = document.getElementById('sun');
+        const hearts = document.querySelectorAll('.heart');
+        const message = document.getElementById('message');
+        const messageText = document.getElementById('message-text');
+        const close = document.getElementById('close');
+        let collectedHearts = 0;
+        const totalHearts = hearts.length;
+
+        // Создать мерцающие звёзды на фоне
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            for (let i = 0; i < 150; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = star.style.height = Math.random() * 4 + 1 + 'px';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        createStars();
+
+        // Конфетти эффект
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.background = `hsl(${Math.random() * 360}, 100%, 70%)`;
+            confetti.style.animationDuration = Math.random() * 3 + 3 + 's';
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 6000);
+        }
+        setInterval(createConfetti, 150);
+
+        // Фейерверк эффект
+        function launchFirework(x, y) {
+            for (let i = 0; i < 30; i++) {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = x + 'px';
+                firework.style.top = y + 'px';
+                firework.style.setProperty('--hue', Math.random() * 360);
+                const angle = Math.random() * 360;
+                const distance = Math.random() * 200 + 100;
+                firework.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+                firework.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+                document.body.appendChild(firework);
+                setTimeout(() => firework.remove(), 1500);
+            }
+        }
+
+        sun.addEventListener('click', (e) => {
+            messageText.innerHTML = 'Моё Солнышко, Поля! Ты — источник света в моей жизни, что озаряет каждый уголок души теплом и счастьем. Без тебя мир блекнет, а с тобой — сияет ярче звёзд. Я люблю тебя за эту магию, что ты приносишь в наши дни.';
+            message.style.display = 'block';
+            launchFirework(e.clientX, e.clientY); // Фейерверк при клике
+            for (let i = 0; i < 15; i++) createConfetti();
+        });
+
+        hearts.forEach(heart => {
+            heart.addEventListener('click', (e) => {
+                e.stopPropagation();
+                messageText.innerHTML = heart.dataset.message;
+                message.style.display = 'block';
+                heart.classList.add('collected');
+                collectedHearts++;
+                launchFirework(e.clientX, e.clientY); // Фейерверк при сборе сердца
+                for (let i = 0; i < 10; i++) createConfetti();
+                if (collectedHearts === totalHearts) {
+                    setTimeout(() => {
+                        messageText.innerHTML = `
+                            <strong>Ты собрала все сердца, моё Солнышко!</strong><br><br>
+                            Вот поэма, написанная для тебя:<br><br>
+                            В небе твоём я нашёл свой рассвет,<br>
+                            Поля, Солнышко, свет мой и жар.<br>
+                            Твои глаза — океан без конца,<br>
+                            В них тону я, в любви утопая.<br><br>
+                            Каждый миг с тобой — танец огня,<br>
+                            Тепло души, что не гаснет вовек.<br>
+                            Ты моя муза, моя вечная звезда,<br>
+                            Люблю тебя сильно, навек и всегда!<br><br>
+                            Давай напишем нашу историю дальше, полную приключений и нежности. ❤️☀️
+                        `;
+                        message.style.display = 'block';
+                        for (let i = 0; i < 50; i++) createConfetti();
+                        launchFirework(window.innerWidth / 2, window.innerHeight / 2);
+                    }, 800);
+                }
+            });
+        });
+
+        close.addEventListener('click', () => {
+            message.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
